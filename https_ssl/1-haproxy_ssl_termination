@@ -1,0 +1,25 @@
+global
+    log /dev/log local0
+    user haproxy
+    group haproxy
+    daemon
+    tune.ssl.default-dh-param 2048
+
+defaults
+    log global
+    mode http
+    option httplog
+    option dontlognull
+    timeout connect 5s
+    timeout client 50s
+    timeout server 50s
+
+frontend web_frontend
+    bind *:80
+    bind *:443 ssl crt /etc/haproxy/certs/www.ismaelnd.tech.pem
+    default_backend web_backend
+
+backend web_backend
+    balance roundrobin
+    server 7303-web-01 3.10.209.204:80 check
+    server 7303-web-02 16.60.159.142:80 check
