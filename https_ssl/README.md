@@ -1,7 +1,7 @@
 # HTTPS SSL
 
 Domain: `ismaelnd.tech`. Load balancer: `13.135.253.118`.
-Web servers: `3.10.209.204` and `16.60.159.142`.
+Web servers: `13.40.131.171` and `16.60.159.142`.
 
 `0-world_wide_web` reports DNS records for `www`, `lb-01`, `web-01`, and
 `web-02` in that order, or for one named subdomain. It requires `dig`.
@@ -12,7 +12,7 @@ DNS A records to create in Namify:
 | --- | --- |
 | www | 13.135.253.118 |
 | lb-01 | 13.135.253.118 |
-| web-01 | 3.10.209.204 |
+| web-01 | 13.40.131.171 |
 | web-02 | 16.60.159.142 |
 
 `1-haproxy_ssl_termination` is the HAProxy configuration for HTTP and HTTPS.
